@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATIHAN JAVASCRIPT</title>
+    <style>
+        table {
+            margin: 0 10% 0 10%;
+        }
+        td {
+            padding: 0 50px 0 0;
+        }
+        #circle {
+            width: 120px;
+            height: 120px;
+            border: 2px solid black;
+            border-radius: 100px;
+            margin: 0px 0 0 100px;
+        }
+        #container {
+            width: 80px;
+            height: 80px;
+            perspective: 200px;
+            margin: 0 0 55px 100px;
+        }
+
+        #cube {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(60deg) rotateZ(0deg);
+
+        }
+
+        #cube div {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            border: 2px solid;
+        }
+
+        #front {
+            background-color: transparent;
+            transform: translateZ(40px);
+        }
+
+        #back {
+            background-color: transparent;
+            transform: translateZ(-40px);
+        }
+
+        #left {
+            background-color: transparent;
+            transform: rotateY(90deg) translateZ(40px);
+        }
+
+        #right {
+            background-color: transparent;
+            transform: rotateY(-90deg) translateZ(40px);
+        }
+
+        #top {
+            background-color: transparent;
+            transform: rotateX(90deg) translateZ(40px);
+        }
+
+        #bottom {
+            background-color: transparent;
+            transform: rotateX(-90deg) translateZ(40px);
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+        function hitungLuas(r) {
+            return Math.PI * r * r;
+        }
+        function hitungKeliling(r) {
+            return 2 * Math.PI * r;
+        }
+        function hitungKubus(s) {
+            return s * s * s;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h1>Luas & Keliling Lingkaran</h1>
+            </td>
+            <td>
+                <h1>Volume Kubus</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="circle"></div>
+                <p>
+                <form>
+                    Masukkan besaran jari-jari, kemudian tekan tombol tab atau ketuk pada "area" box.
+                    <br><br>Jari-jari (cm):
+                    <input type="text" name="radius" size="6" maxlength="7" ,
+                        onblur="area.value=hitungLuas(parseFloat(radius.value)); keliling.value=hitungKeliling(parseFloat(radius.value));">
+                    <br><br>Luas (cm<sup>2</sup>) &ensp;:
+                    <input type="text" name="area" size="6" max="7">
+                    <br><br>Keliling (cm): 
+                    <input type="text" name="keliling" size="6" max="7">
+                </form>
+            </td>
+            <td>
+                </p>
+                <div id="container">
+                    <div id="cube">
+                        <div id="front"></div>
+                        <div id="back"></div>
+                        <div id="left"></div>
+                        <div id="right"></div>
+                        <div id="top"></div>
+                        <div id="bottom"></div>
+                    </div>
+                </div>
+                <p>
+                <form>
+                    Masukkan besaran panjang, kemudian tekan tombol tab atau ketuk pada "area" box.<br>
+                    <br><br>panjang (cm) :
+                    <input type="text" name="panjang" size="6" maxlength="7" ,
+                        onblur="volume.value=hitungKubus(parseFloat(panjang.value));"><br>
+                    <br><br>volume (cm<sup>3</sup>) :
+                    <input type="text" name="volume" size="6" max="7">
+                </form>
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
